@@ -121,7 +121,7 @@ def compile_code(assembly_code):
     return line
 
 #open source code file
-f = open("source.txt", "r+")
+f = open("source.txt", "r")
 #file_lines = f.readlines()
 file_lines = [line for line in f.readlines() if line.strip()]
 
