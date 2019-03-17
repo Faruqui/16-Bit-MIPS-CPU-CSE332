@@ -1,10 +1,12 @@
 # 16-Bit-MIPS-CPU-CSE332
 
 # Instruction Formats
+
+
 Name        	 | Bit fields	                                                | Notes                          |
-| ---          | --- | --- | --- | --- | --- |                                --- |
+
 	             | 4 Bits |	3 Bits	| 3 Bits	|3 Bits	 | 3 Bits	
-R - Format	   | Op		  | rs	    | rt	 	  |  rd    | funct                | Arithmetic, Logic instruction  |
+R - Format	   | Op		  | rs	    | rt	 	  |  rd    | funct        | Arithmetic, Logic instruction  |
 I - Format	   | Op		  | rs	    | rt      | Immediate (6 Bits)	          | Load, Store, Branch, Immediate |
 
 
