@@ -1,7 +1,7 @@
 # 16-Bit-MIPS-CPU-CSE332
 
-# Instruction Formats
 
+# Instruction Formats
 
 |Name        	   | Bit fields |       |         |                   |        |       Notes                      |
 | ---          	   | ---        | ---   |  ---    | ---               | ---    |      ----------                  |
@@ -11,10 +11,7 @@
 
 
 
-
-
-
-
+# Opcodes
 
 |Operation        |	Opcode |  funct |	Format | Type       |	Assembly Format  |	Action        |
 | -------        | ------- | ------ |-------   | -------    |   ------------     |      -------   |
