@@ -3,7 +3,7 @@
 
 # Instruction Formats
 
-|Name        	   | Bit fields     |       Notes                      |
+|Name        	   | Bit fields     |  |       |         |                   |         Notes                      |
 | ---          	   | ---        | ---   |  ---    | ---               | ---    |      ----------                  |
 |	           | 4 Bits     |3 Bits	| 3 Bits  | 3 Bits            | 3 Bits |                                  |
 |R - Format	   | Op	        | rs	| rt	  |  rd               | funct  |   Arithmetic, Logic instruction  |
