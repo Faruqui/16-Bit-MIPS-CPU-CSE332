@@ -7,7 +7,7 @@
 | ---          	   | ---        | ---   |  ---    | ---               | ---    |      ----------                  |
 |	           | 4 Bits     |3 Bits	| 3 Bits  | 3 Bits            | 3 Bits |                                  |
 |R - Format	   | Op	        | rs	| rt	  |  rd               | funct  |   Arithmetic, Logic instruction  |
-|I - Format	   | Op         | rs	| rt      | Immediate (6 Bits)|	       |   Load, Store, Branch, Immediate |
+|I - Format	   | Op         | rs	| rt      | Immediate (4 Bits)|	       |   Load, Store, Branch, Immediate |
 
 
 
