@@ -30,6 +30,8 @@ codes = {
     'ble'   : '1000',
     'lw'    : '1001',
     'sw'    : '1010',
+    'lui'   : '1011',
+    'ori'   : '1100',
 }
 
 rformat_opcodes = ['add', 'sub', 'and', 'or', 'addu', 'subu']
@@ -72,11 +74,15 @@ def rearrange_list(list):
             temp = list[3]
             list[3] = list[1]
             list[1] = temp
-        elif list[0] != 'lw' and list[0] != 'sw':
+        elif list[0] not in('lw', 'sw', 'lui', 'ori') :
             temp = list[2]
             list[2] = list[1]
             list[1] = temp
         else:
+            if list[0] == "lui":
+                src = list[2]
+                list [2] = "r0"
+                list.append(src)
             if list[0] == "lw":
                 dest = list[1]
                 src = list [3]
@@ -109,9 +115,14 @@ def decode_line(line):
         for e in line:
             if is_code(e):
                 decoded_line.append(codes[e])
-        number = int(line[3])
-        binary = f'{number:06b}'
-        decoded_line.append(binary)
+        if line[0] not in ('lui', 'ori'):
+            number = int(line[3])
+            binary = f'{number:04b}'
+            decoded_line.append(binary)
+        else:
+            number = int(line[3],16)
+            binary = f'{number:04b}'
+            decoded_line.append(binary)
     return decoded_line
 
 
@@ -132,8 +143,8 @@ f2= open("compiled.txt","w")
 
 for line in file_lines:
     line = line.rstrip()
-    print (f'Assembly code: {line}')
-    print ("Machine code: ", end=" ")
+    print (f'Assembly code : {line}')
+    print ("Machine code : ", end=" ")
     try:
         machine_code = compile_code(line)
     except:
