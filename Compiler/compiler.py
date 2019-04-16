@@ -32,6 +32,7 @@ codes = {
     'sw'    : '1010',
     'lui'   : '1011',
     'ori'   : '1100',
+    'jump'  : '1101',
 }
 
 rformat_opcodes = ['add', 'sub', 'and', 'or', 'addu', 'subu']
@@ -41,9 +42,9 @@ for key in rformat_opcodes:
 
 funct = {
     'add'   : '000',
-    'sub'   : '001',
-    'and'   : '010',
-    'or'    : '011',
+    'sub'   : '010',
+    'and'   : '100',
+    'or'    : '101',
     'addu'  : '100',
     'subu'  : '101',
 }
@@ -74,7 +75,7 @@ def rearrange_list(list):
             temp = list[3]
             list[3] = list[1]
             list[1] = temp
-        elif list[0] not in('lw', 'sw', 'lui', 'ori') :
+        elif list[0] not in('lw', 'sw', 'lui', 'ori', 'jump') :
             temp = list[2]
             list[2] = list[1]
             list[1] = temp
@@ -91,8 +92,8 @@ def rearrange_list(list):
                 list [2] = dest
                 list [3] = val
             if list[0] == "sw":
-                dest = list[3]
-                src = list [1]
+                dest = list[1]
+                src = list [3]
                 val = list[2]
                 list [1] = src
                 list [2] = dest
@@ -111,13 +112,22 @@ def decode_line(line):
             if is_code(e):
                 decoded_line.append(codes[e])
         decoded_line.append(funct[line[0]])
+
+    elif(line[0] == 'jump'):
+        e = line[0]
+        if is_code(e):
+            decoded_line.append(codes[e])
+            number = int(line[1])
+            binary = f'{number:012b}'
+            decoded_line.append(binary)
+
     else:
         for e in line:
             if is_code(e):
                 decoded_line.append(codes[e])
         if line[0] not in ('lui', 'ori'):
             number = int(line[3])
-            binary = f'{number:04b}'
+            binary = f'{number:06b}'
             decoded_line.append(binary)
         else:
             number = int(line[3],16)
@@ -147,16 +157,26 @@ for line in file_lines:
     print ("Machine code : ", end=" ")
     try:
         machine_code = compile_code(line)
+        #print(f'compiled code is: {machine_code}')
     except:
         machine_code = ['ERROR in source code']
 
+    binary_code = ""
     for e in machine_code:
         #f2.write(f'{codes[e]} ')
+        binary_code = binary_code + e
         f2.write("%s "%e)
         print(e, end=" ")
-    f2.write("\n")
+    hexa_code = hex(int(binary_code, 2))
     print()
-
+    print(f'The hexa code is: {hexa_code}')
+    print()
+    f2.write(f'  Hexa Code: {hexa_code}')
+    f2.write("\n")
 
 f.close()
 f2.close()
+
+
+test = '0011001010001010'
+test2 = hex(int(test, 2))
