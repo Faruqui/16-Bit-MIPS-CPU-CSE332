@@ -27,21 +27,23 @@ codes = {
     'beq'   : '0101',
     'bne'   : '0110',
     'bge'   : '0111',
-    'ble'   : '1000',
+    'slti'  : '1000',
     'lw'    : '1001',
     'sw'    : '1010',
     'lui'   : '1011',
     'ori'   : '1100',
     'jump'  : '1101',
+    'slti'  : '1111',
 }
 
-rformat_opcodes = ['add', 'sub', 'and', 'or', 'addu', 'subu']
+rformat_opcodes = ['add', 'sub', 'and', 'or', 'addu', 'subu', 'div']
 
 for key in rformat_opcodes:
     codes[key] = '0000'
 
 funct = {
     'add'   : '000',
+    'div'   : '001',
     'sub'   : '010',
     'and'   : '100',
     'or'    : '101',
