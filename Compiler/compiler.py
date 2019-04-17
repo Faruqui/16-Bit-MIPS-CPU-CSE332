@@ -36,7 +36,7 @@ codes = {
     'slti'  : '1111',
 }
 
-rformat_opcodes = ['add', 'sub', 'and', 'or', 'addu', 'subu', 'div']
+rformat_opcodes = ['add', 'sub', 'and', 'or', 'mul', 'subu', 'div']
 
 for key in rformat_opcodes:
     codes[key] = '0000'
@@ -47,7 +47,7 @@ funct = {
     'sub'   : '010',
     'and'   : '100',
     'or'    : '101',
-    'addu'  : '100',
+    'mul'   : '011',
     'subu'  : '101',
 }
 
