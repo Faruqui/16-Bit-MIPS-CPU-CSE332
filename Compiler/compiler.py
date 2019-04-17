@@ -157,6 +157,7 @@ for line in file_lines:
     line = line.rstrip()
     print (f'Assembly code : {line}')
     print ("Machine code : ", end=" ")
+    f2.write(f'{line}         ')
     try:
         machine_code = compile_code(line)
         #print(f'compiled code is: {machine_code}')
@@ -173,12 +174,13 @@ for line in file_lines:
     print()
     print(f'The hexa code is: {hexa_code}')
     print()
-    f2.write(f'  Hexa Code: {hexa_code}')
+    f2.write(f'     Hexa Code: {hexa_code}')
     f2.write("\n")
 
 f.close()
 f2.close()
 
+hexa_num = "2a"
+int_num = int(hexa_num,16)
 
-test = '0011001010001010'
-test2 = hex(int(test, 2))
+print(f'Hexa: {hexa_num}; Int: {int_num}')

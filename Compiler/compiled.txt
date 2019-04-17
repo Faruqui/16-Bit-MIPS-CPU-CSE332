@@ -1,14 +1,16 @@
-1001 000 001 000000   Hexa Code: 0x9040
-1001 000 010 000001   Hexa Code: 0x9081
-1001 000 011 000010   Hexa Code: 0x90c2
-0000 010 011 100 000   Hexa Code: 0x4e0
-0000 011 100 101 000   Hexa Code: 0x728
-1001 000 100 000011   Hexa Code: 0x9103
-0000 101 100 110 001   Hexa Code: 0xb31
-1010 000 110 000100   Hexa Code: 0xa184
-1001 000 110 000100   Hexa Code: 0x9184
-1101 000000001000   Hexa Code: 0xd008
-0010 000 010 000010   Hexa Code: 0x2082
-0010 000 011 000011   Hexa Code: 0x20c3
-0000 010 011 100 011   Hexa Code: 0x4e3
-1010 000 100 000000   Hexa Code: 0xa100
+addi r1, r0, 3         0010 000 001 000011      Hexa Code: 0x2043
+addi r2, r0, 2         0010 000 010 000010      Hexa Code: 0x2082
+addi r3, r0, 7         0010 000 011 000111      Hexa Code: 0x20c7
+addi r7, r0, 3         0010 000 111 000011      Hexa Code: 0x21c3
+add r4, r1, r2         0000 010 001 100 000      Hexa Code: 0x460
+add r4, r4, r3         0000 011 100 100 000      Hexa Code: 0x720
+div r4, r7, r4         0000 100 111 100 001      Hexa Code: 0x9e1
+sw r4, 0($0)         1010 000 100 000000      Hexa Code: 0xa100
+mul r5, r1, r2         0000 010 001 101 011      Hexa Code: 0x46b
+mul r5, r5, r3         0000 011 101 101 011      Hexa Code: 0x76b
+sw r5, 1($0)         1010 000 101 000001      Hexa Code: 0xa141
+beq r0, r0, 2         0101 000 000 000010      Hexa Code: 0x5002
+lw r1, 0(r0)         1001 000 001 000000      Hexa Code: 0x9040
+jump 16         1101 000000010000      Hexa Code: 0xd010
+lw r2, 1(r0)         1001 000 010 000001      Hexa Code: 0x9081
+jump 17         1101 000000010001      Hexa Code: 0xd011
