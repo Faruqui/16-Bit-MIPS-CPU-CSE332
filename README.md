@@ -6,9 +6,9 @@
 |Name        	   | Bit fields     |  |       |         |                   |         Notes                      |
 | ---          	   | ---        | ---   |  ---    | ---               | ---    |      ----------                  |
 |	           | 4 Bits     |3 Bits	| 3 Bits  | 3 Bits            | 3 Bits |                                  |
-|R - Format	   | Op	        | rs	| rt	  |  rd               | funct  |   Arithmetic, Logic instruction  |
-|I - Format	   | Op         | rs	| rt      | Immediate (4 Bits)|	       |   Load, Store, Branch, Immediate |
-|     J - Format    |     Op       |     Target Address (12 bits)    |           |                    |               |     Jump                 |
+|R-Format	   | Op	        | rs	| rt	  |  rd               | funct  |   Arithmetic, Logic instruction  |
+|I-Format	   | Op         | rs	| rt      | Immediate (4 Bits)|	       |   Load, Store, Branch, Immediate |
+|J-Format    |     Op       |     Target Address (12 bits)    |           |                    |               |     Jump                 |
 
 
 
